@@ -1,0 +1,390 @@
+math/vector2.go
+  2348f12d5d84affc 13
+  f1ffd7a7a2febb87 55
+  ff429f95c5d6265f 102 gitai:{"mixed_line_ranges":[{"Single":102}],"operations":[]}
+  46dfa55a20e838c4 70 gitai:{"mixed_line_ranges":[{"Single":70}],"operations":[]}
+  1f7897f241bc6ab0 103
+  2c6c21f9bf3eeff2 65
+  fece6752b5eff081 60
+  f5d443f9e34563a4 95-96
+  0be56788177cee97 100
+  899c9537cf729120 110-111
+  3e4b482e553353eb 84
+  d55e1332dcf6b47d 75
+  0ba0afba645855aa 11 gitai:{"mixed_line_ranges":[{"Single":11}],"operations":[]}
+  95c65ce87b6ea1b7 78-80 gitai:{"mixed_line_ranges":[{"Single":78}],"operations":[]}
+  40220375f701e487 14 gitai:{"mixed_line_ranges":[{"Single":14}],"operations":[]}
+  4c234ade479e5997 67
+  5d22d64af0bea1e9 87-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "bc49e744468c1bdea7cbeb7d55d9e3a18e61f9ca",
+  "prompts": {
+    "0ba0afba645855aa": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-7b240bda-80be-4a48-ba29-da05c12aa9a5",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    },
+    "0be56788177cee97": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-421fb445-9776-4f91-8330-1fd1e3e1d7d5",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "1f7897f241bc6ab0": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-7f66566f-4890-4bb9-bbc5-eac60f86d21c",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "2348f12d5d84affc": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-0c254084-77c4-485f-ac0b-9ca0dcc64fb7",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "2c6c21f9bf3eeff2": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-62c2918a-4f22-4e4f-b15e-302b2cdd0a95",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "3e4b482e553353eb": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-9d11fec0-0045-4b6e-b1d3-1e91a62eb8bc",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "40220375f701e487": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-c8ad05c1-853c-41c1-ac7b-a5ffc1e18707",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    },
+    "46dfa55a20e838c4": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-eaaa4c53-7180-46ee-a7a9-a3d64e572250",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    },
+    "4c234ade479e5997": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-467fbc62-e1a8-46c5-8821-8a4126e6b4d9",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "5c2e7a0d9e66133b": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-ee0eac8d-659f-4e1f-8baa-f8d605fad2b1",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "5d22d64af0bea1e9": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-052863da-dbcd-4218-8ff1-9c58b29e8ab6",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "899c9537cf729120": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-25276f0e-3dbe-4ba3-a2aa-de561081d714",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "8b228d5d9a644811": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-ff3e1892-5cc2-4e14-8a38-9ad34ce50036",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "8c84425c95ccaaf2": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-a44be607-905e-4af6-8c4c-fc59da5f7321",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "95c65ce87b6ea1b7": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-a5a4d58d-90ed-431e-9c1d-8d73339f758c",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 1
+    },
+    "a2b8c326235631b4": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-811a8927-8ecf-4060-91f5-6d0f37b652b4",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "aa9bfbef01bfa8ab": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-f8bba009-7c6b-4e6e-8e39-e5210e244d32",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "d55e1332dcf6b47d": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-902a3eb4-9866-4445-9937-a7b32bd3416e",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "f1ffd7a7a2febb87": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-8675a4b2-0169-43e4-a0a5-47f66d6558d8",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "f5d443f9e34563a4": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-d476952a-700b-4869-8e90-e22e9e7c5188",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "fece6752b5eff081": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-9a4de636-1690-43e4-9d1e-91d4c1fe5def",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "ff429f95c5d6265f": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-8ac5a4b7-c866-493f-a1b3-80d02ca3a7cd",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    }
+  },
+  "attestation_metadata": {
+    "math/vector2.go": [
+      {
+        "hash": "ff429f95c5d6265f",
+        "line_ranges": [
+          {
+            "Single": 102
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 102
+          }
+        ],
+        "operations": []
+      },
+      {
+        "hash": "46dfa55a20e838c4",
+        "line_ranges": [
+          {
+            "Single": 70
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 70
+          }
+        ],
+        "operations": []
+      },
+      {
+        "hash": "0ba0afba645855aa",
+        "line_ranges": [
+          {
+            "Single": 11
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 11
+          }
+        ],
+        "operations": []
+      },
+      {
+        "hash": "95c65ce87b6ea1b7",
+        "line_ranges": [
+          {
+            "Range": [
+              78,
+              80
+            ]
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 78
+          }
+        ],
+        "operations": []
+      },
+      {
+        "hash": "40220375f701e487",
+        "line_ranges": [
+          {
+            "Single": 14
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 14
+          }
+        ],
+        "operations": []
+      }
+    ]
+  },
+  "remote_transcripts": {}
+}
