@@ -1,0 +1,928 @@
+README.md
+  4afc47c1d6b61691 7 gitai:{"mixed_line_ranges":[{"Single":7}],"operations":[]}
+  c141ab2561c8e027 16
+  cda1702e34a30aae 5 gitai:{"mixed_line_ranges":[{"Single":5}],"operations":[]}
+physics2d/shape.go
+  b88d0af89d437b7a 1-47 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,47]}]}]}
+physics3d/body.go
+  b88d0af89d437b7a 1-41 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,41]}]}]}
+physics2d/body.go
+  b88d0af89d437b7a 1-49 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,49]}]}]}
+collision2d/collision.go
+  b88d0af89d437b7a 1-32 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,32]}]}]}
+collision3d/collision.go
+  b88d0af89d437b7a 1-30 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,30]}]}]}
+physics3d/shape.go
+  b88d0af89d437b7a 1-54 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,54]}]}]}
+physics2d/world.go
+  b88d0af89d437b7a 1-32 gitai:{"mixed_line_ranges":[{"Single":32}],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,32]}]}]}
+collision2d/contact.go
+  b88d0af89d437b7a 1-47 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,47]}]}]}
+collision3d/broadphase.go
+  b88d0af89d437b7a 1-22 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,22]}]}]}
+ARCHITECTURE.md
+  b88d0af89d437b7a 1-149 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,149]}]}]}
+shapes/shapes.go
+  b88d0af89d437b7a 1-55 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,55]}]}]}
+main.go
+  b88d0af89d437b7a 9-146 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[9,146]}]}]}
+shapes/api.go
+  b88d0af89d437b7a 1-39 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,39]}]}]}
+math/matrix.go
+  b88d0af89d437b7a 1-24 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,24]}]}]}
+renderer/renderer.go
+  b88d0af89d437b7a 1-322 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,322]}]}]}
+math/vector3.go
+  b88d0af89d437b7a 1-35 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,35]}]}]}
+camera/camera.go
+  b88d0af89d437b7a 1-53 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,53]}]}]}
+collision2d/broadphase.go
+  b88d0af89d437b7a 1-25 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,25]}]}]}
+solver3d/solver.go
+  b88d0af89d437b7a 1-61 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,61]}]}]}
+physics2d/material.go
+  b88d0af89d437b7a 1-49 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,49]}]}]}
+physics3d/world.go
+  b88d0af89d437b7a 1-39 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,39]}]}]}
+math/vector2.go
+  b88d0af89d437b7a 1-29 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,29]}]}]}
+math/util.go
+  b88d0af89d437b7a 1-35 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,35]}]}]}
+solver2d/solver.go
+  b88d0af89d437b7a 1-56 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,56]}]}]}
+collision3d/contact.go
+  b88d0af89d437b7a 1-47 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[1,47]}]}]}
+ui/ui.go
+  b88d0af89d437b7a 2-577 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a0f0ba42850b87a7f4c56e5","tool_type":"agent","tool_id":"Write","line_ranges":[{"Range":[2,577]}]}]}
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "5a17bac6c852f7060065358e1bd64b01fefe4baa",
+  "prompts": {
+    "4afc47c1d6b61691": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-bbb0e32e-b9b8-4133-8987-51a8c942b8af",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    },
+    "b88d0af89d437b7a": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a0ef3ba2850b87a7f4c5419",
+        "model": "Doubao-Seed-2.0-Code__dev"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 4073,
+      "total_deletions": 790,
+      "accepted_lines": 3093,
+      "overriden_lines": 1
+    },
+    "c141ab2561c8e027": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-3ee9d5bb-3771-437a-a52f-654b4f9e76eb",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "c37604e37d693ff8": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-ec2c6bd7-356b-42ba-8ec7-2eeedcf6291c",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "cda1702e34a30aae": {
+      "agent_id": {
+        "tool": "trae-cue",
+        "id": "ai_tab-icr-c6c27d6f-6bd5-4e5d-84c7-9918ea10c188",
+        "model": "default"
+      },
+      "human_author": "焦振凯 <jiaozhenkai@bytedance.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    }
+  },
+  "attestation_metadata": {
+    "ARCHITECTURE.md": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              149
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  149
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "README.md": [
+      {
+        "hash": "4afc47c1d6b61691",
+        "line_ranges": [
+          {
+            "Single": 7
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 7
+          }
+        ],
+        "operations": []
+      },
+      {
+        "hash": "cda1702e34a30aae",
+        "line_ranges": [
+          {
+            "Single": 5
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 5
+          }
+        ],
+        "operations": []
+      }
+    ],
+    "camera/camera.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              53
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  53
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "collision2d/broadphase.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              25
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  25
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "collision2d/collision.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              32
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  32
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "collision2d/contact.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              47
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  47
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "collision3d/broadphase.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              22
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  22
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "collision3d/collision.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              30
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  30
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "collision3d/contact.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              47
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  47
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "main.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              9,
+              146
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  9,
+                  146
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "math/matrix.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              24
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  24
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "math/util.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              35
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  35
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "math/vector2.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              29
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  29
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "math/vector3.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              35
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  35
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics2d/body.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              49
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  49
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics2d/material.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              49
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  49
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics2d/shape.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              47
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  47
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics2d/world.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              32
+            ]
+          }
+        ],
+        "mixed_line_ranges": [
+          {
+            "Single": 32
+          }
+        ],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  32
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics3d/body.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              41
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  41
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics3d/shape.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              54
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  54
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "physics3d/world.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              39
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  39
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "renderer/renderer.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              322
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  322
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shapes/api.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              39
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  39
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shapes/shapes.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              55
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  55
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "solver2d/solver.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              56
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  56
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "solver3d/solver.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              1,
+              61
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  1,
+                  61
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "ui/ui.go": [
+      {
+        "hash": "b88d0af89d437b7a",
+        "line_ranges": [
+          {
+            "Range": [
+              2,
+              577
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a0f0ba42850b87a7f4c56e5",
+            "tool_type": "agent",
+            "tool_id": "Write",
+            "line_ranges": [
+              {
+                "Range": [
+                  2,
+                  577
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "remote_transcripts": {
+    "b88d0af89d437b7a": {
+      "tool": "trae",
+      "conversation_id": "6a0ef3ba2850b87a7f4c5419",
+      "session_id": "6a0ef3ba2850b87a7f4c5419",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    }
+  }
+}
