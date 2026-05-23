@@ -13,7 +13,7 @@
 - 最后是 solver/ 的解算逻辑
 
 ## 架构s
-![架构图](ARCHITECTURE.md)
+[架构图](ARCHITECTURE.md)
 
 ## 坐标系
 1. 2D 场景的坐标原点为左下角，向上是 Y 正半轴，向右是 X 正半轴
