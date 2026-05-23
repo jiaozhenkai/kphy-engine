@@ -16,9 +16,46 @@ type Matrix4x4 struct {
 }
 
 // 矩阵操作方法声明（待实现）
-func Mat2(angle float32) Matrix2x2                                           { return Matrix2x2{} }
-func (m Matrix2x2) MulVec(v Vector2) Vector2                                 { return Vector2{} }
-func (m Matrix2x2) Transpose() Matrix2x2                                     { return Matrix2x2{} }
-func Mat3Identity() Matrix3x3                                                { return Matrix3x3{} }
+
+// Mat2 生成一个2D旋转矩阵
+// 主要用途：对2D向量进行旋转变换
+// 注意事项：
+// 1. 参数 angle 的单位是弧度
+// 2. 旋转方向为逆时针（数学坐标系）
+func Mat2(angle float32) Matrix2x2 { return Matrix2x2{} }
+
+// MulVec 用矩阵乘以向量
+// 主要用途：对向量进行旋转变换
+// 注意事项：
+// 1. 此方法不修改原向量，返回新的变换后向量
+// 2. 2x2矩阵仅用于旋转，不包含平移
+func (m Matrix2x2) MulVec(v Vector2) Vector2 { return Vector2{} }
+
+// Transpose 求矩阵的转置
+// 主要用途：矩阵求逆的一部分、正交矩阵的转置等于逆
+// 注意事项：
+// 1. 对正交矩阵来说，转置等于逆矩阵
+// 2. 此方法返回新矩阵，不修改原矩阵
+func (m Matrix2x2) Transpose() Matrix2x2 { return Matrix2x2{} }
+
+// Mat3Identity 生成3x3单位矩阵
+// 主要用途：1. 矩阵乘法的单位元 2. 初始化变换矩阵
+// 注意事项：
+// 1. 任何矩阵乘以单位矩阵都等于自身
+// 2. 单位矩阵的对角线都是1，其余为0
+func Mat3Identity() Matrix3x3 { return Matrix3x3{} }
+
+// Mat3Transform 生成2D变换矩阵（包含平移、旋转、缩放）
+// 主要用途：一次性组合多个2D变换（TRS: 平移-旋转-缩放）
+// 注意事项：
+// 1. 变换顺序为：先缩放，再旋转，最后平移（Scale -> Rotate -> Translate）
+// 2. 参数 angle 的单位是弧度
+// 3. 参数 scale 不能为0，否则会导致物体消失
 func Mat3Transform(position Vector2, angle float32, scale Vector2) Matrix3x3 { return Matrix3x3{} }
-func Mat4Identity() Matrix4x4                                                { return Matrix4x4{} }
+
+// Mat4Identity 生成4x4单位矩阵（3D）
+// 主要用途：1. 3D矩阵乘法的单位元 2. 初始化3D变换矩阵
+// 注意事项：
+// 1. 任何4x4矩阵乘以单位矩阵都等于自身
+// 2. 此为3D变换预留
+func Mat4Identity() Matrix4x4 { return Matrix4x4{} }
