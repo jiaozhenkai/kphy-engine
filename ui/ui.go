@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image"
 	"image/color"
+	"time"
 
 	"gioui.org/f32"
 	"gioui.org/io/pointer"
@@ -16,6 +17,8 @@ import (
 	"gioui.org/widget/material"
 
 	"kphy-engine/camera"
+	"kphy-engine/math"
+	"kphy-engine/physics2d"
 	"kphy-engine/renderer"
 	"kphy-engine/shapes"
 )
@@ -34,15 +37,56 @@ type AppState struct {
 	Zoom          float32
 	Camera        camera.Camera3D
 	PlaceCount    int
+	// 物理世界
+	World          *physics2d.World
+	LastFrameTime  time.Time
 }
 
 // NewAppState 创建新的应用状态
 func NewAppState() *AppState {
+	// 创建物理世界
+	settings := physics2d.WorldSettings{
+		Gravity:  math.Vec2(0, -5), // 向下的重力
+		SubSteps: 4,
+	}
+	world := physics2d.NewWorld(settings)
+	
 	return &AppState{
-		Is3D:    false,
-		Zoom:    1.0,
-		Objects: make([]shapes.SceneObject, 0),
-		Camera:  camera.NewCamera3D(),
+		Is3D:          false,
+		Zoom:          1.0,
+		Objects:       make([]shapes.SceneObject, 0),
+		Camera:        camera.NewCamera3D(),
+		World:         world,
+		LastFrameTime: time.Now(),
+	}
+}
+
+// UpdatePhysics 更新物理世界
+func (s *AppState) UpdatePhysics() {
+	if s.Is3D {
+		return // 3D 暂时不处理物理
+	}
+	
+	now := time.Now()
+	dt := float32(now.Sub(s.LastFrameTime).Seconds())
+	s.LastFrameTime = now
+	
+	// 限制最大 dt
+	if dt > 0.1 {
+		dt = 0.1
+	}
+	
+	// 步进物理世界
+	s.World.Step(dt)
+	
+	// 同步物理位置到图形对象
+	for i := range s.Objects {
+		obj := &s.Objects[i]
+		if obj.RigidBody != nil {
+			// 同步刚体位置到图形
+			obj.X = obj.RigidBody.Position.X
+			obj.Y = obj.RigidBody.Position.Y
+		}
 	}
 }
 
@@ -64,8 +108,8 @@ func (s *AppState) AddShape(kind shapes.ShapeKind) {
 		obj := shapes.SceneObject{
 			Kind:  kind,
 			X:     float32(col)*1.2 - 1.2,
-			Y:     float32(dep)*1.2 - 0.6, // Y轴现在是深度（向里）
-			Z:     float32(row)*1.0 + 0.5, // Z轴现在是向上
+			Y:     float32(dep)*1.2 - 0.6,
+			Z:     float32(row)*1.0 + 0.5,
 			Size:  0.3,
 			Color: shapes.ColorPalette[s.PlaceCount%len(shapes.ColorPalette)],
 		}
@@ -74,12 +118,9 @@ func (s *AppState) AddShape(kind shapes.ShapeKind) {
 		col := s.PlaceCount % 4
 		row := s.PlaceCount / 4
 		x := 0.15 + float32(col)*0.2
-		y := 0.15 + float32(row)*0.2
-		if y > 0.85 {
-			y = 0.15
-			s.PlaceCount = 0
-		}
-
+		y := 0.75 - float32(row)*0.2 // 从上面开始放
+		
+		// 创建图形对象
 		obj := shapes.SceneObject{
 			Kind:  kind,
 			X:     x,
@@ -88,6 +129,27 @@ func (s *AppState) AddShape(kind shapes.ShapeKind) {
 			Size:  0.08,
 			Color: shapes.ColorPalette[s.PlaceCount%len(shapes.ColorPalette)],
 		}
+		
+		// 创建对应的刚体
+		body := physics2d.NewRigidBody(
+			physics2d.BodyDynamic,
+			math.Vec2(x, y),
+			1.0, // 质量
+		)
+		
+		// 给点初始速度和角速度，让它动起来
+		body.SetLinearVelocity(math.Vec2(
+			(float32(s.PlaceCount%3)-1)*0.2, // 随机水平速度
+			float32(s.PlaceCount%2+1)*0.3,   // 向上的初速度
+		))
+		body.SetAngularVelocity(float32(s.PlaceCount%3-1) * 2.0) // 旋转
+		
+		// 添加到世界
+		s.World.AddBody(body)
+		
+		// 关联刚体到图形对象
+		obj.RigidBody = body
+		
 		s.Objects = append(s.Objects, obj)
 	}
 	s.PlaceCount++
@@ -96,6 +158,12 @@ func (s *AppState) AddShape(kind shapes.ShapeKind) {
 // DeleteLastObject 删除最后一个对象
 func (s *AppState) DeleteLastObject() {
 	if len(s.Objects) > 0 {
+		lastObj := &s.Objects[len(s.Objects)-1]
+		// 从物理世界移除刚体
+		if lastObj.RigidBody != nil && !s.Is3D {
+			s.World.RemoveBody(lastObj.RigidBody)
+		}
+		
 		s.Objects = s.Objects[:len(s.Objects)-1]
 		if s.PlaceCount > 0 {
 			s.PlaceCount--
@@ -105,12 +173,21 @@ func (s *AppState) DeleteLastObject() {
 
 // ClearAllObjects 清除所有对象
 func (s *AppState) ClearAllObjects() {
+	// 清空物理世界
+	if s.World != nil {
+		s.World.Bodies = s.World.Bodies[:0]
+		s.World.BodyCount = 0
+	}
+	
 	s.Objects = s.Objects[:0]
 	s.PlaceCount = 0
 }
 
 // DrawUI 绘制主UI
 func DrawUI(gtx layout.Context, th *material.Theme, state *AppState) layout.Dimensions {
+	// 先更新物理
+	state.UpdatePhysics()
+	
 	paint.Fill(gtx.Ops, color.NRGBA{R: 0x1A, G: 0x1A, B: 0x2E, A: 0xFF})
 
 	return layout.Flex{Axis: layout.Vertical}.Layout(gtx,
@@ -301,10 +378,6 @@ func Draw3DScene(gtx layout.Context, th *material.Theme, state *AppState, cw, ch
 		projected = append(projected, projectedObj{obj: obj, sx: sx, sy: sy, depth: depth, scale: scale})
 	}
 
-	// 排序：远处的先绘制
-	// 注意：为避免循环依赖，这里暂不排序
-	// 实际项目中可以考虑将排序逻辑移到独立包
-
 	for _, po := range projected {
 		Draw3DObjectProjected(r, po.obj, po.sx, po.sy, po.scale, float32(cw))
 	}
@@ -340,7 +413,6 @@ func Draw3DGrid(gtx layout.Context, state *AppState, cw, ch int) {
 	extent := float32(5.0)
 	half := extent / 2
 
-	// 现在网格在X-Y平面（Y向里，X向右），Z轴向上
 	for i := 0; i < gridLines; i++ {
 		t := float32(i)/float32(gridLines-1)*extent - half
 
@@ -359,15 +431,12 @@ func Draw3DAxis(gtx layout.Context, state *AppState, cw, ch int) {
 	ox, oy, _ := state.Camera.Project3D(0, 0, 0, cw, ch)
 	axisLen := float32(2.5)
 
-	// X轴：向右（红色）
 	ex, ey, _ := state.Camera.Project3D(axisLen, 0, 0, cw, ch)
 	StrokeLine(gtx, ox, oy, ex, ey, 2.5, color.NRGBA{R: 0xFF, G: 0x3C, B: 0x50, A: 0xFF})
 
-	// Y轴：向里（绿色）
 	ex, ey, _ = state.Camera.Project3D(0, axisLen, 0, cw, ch)
 	StrokeLine(gtx, ox, oy, ex, ey, 2.5, color.NRGBA{R: 0x7C, G: 0xC3, B: 0x2E, A: 0xFF})
 
-	// Z轴：向上（蓝色）
 	ex, ey, _ = state.Camera.Project3D(0, 0, axisLen, cw, ch)
 	StrokeLine(gtx, ox, oy, ex, ey, 2.5, color.NRGBA{R: 0x38, G: 0x8A, B: 0xFF, A: 0xFF})
 }
@@ -409,16 +478,22 @@ func Draw2DObject(r *renderer.Renderer, state *AppState, obj shapes.SceneObject,
 	cx := obj.X * float32(cw)
 	cy := float32(ch) - obj.Y*float32(ch) // 原点在左下角，向上为Y正
 	size := obj.Size * float32(cw) * state.Zoom
+	
+	// 如果有刚体，绘制时应用旋转
+	angle := float32(0)
+	if obj.RigidBody != nil {
+		angle = obj.RigidBody.Angle
+	}
 
 	switch obj.Kind {
 	case shapes.ShapeCircle:
 		r.DrawCircle(cx, cy, size/2, obj.Color)
 	case shapes.ShapeRect:
-		r.DrawRect(cx-size/2, cy-size/2, size, size, obj.Color)
+		r.DrawRotatedRect(cx, cy, size, size, angle, obj.Color)
 	case shapes.ShapeTriangle:
-		r.DrawTriangle(cx, cy, size, obj.Color)
+		r.DrawRotatedTriangle(cx, cy, size, angle, obj.Color)
 	case shapes.ShapePentagon:
-		r.DrawPolygon(cx, cy, size/2, 5, obj.Color)
+		r.DrawRotatedPolygon(cx, cy, size/2, 5, angle, obj.Color)
 	}
 }
 
@@ -512,8 +587,12 @@ func DrawStatusBar(gtx layout.Context, th *material.Theme, state *AppState) layo
 						mode = "3D"
 						extra = "Scroll: camera distance | Q/E orbit | W/S tilt"
 					}
-					txt := fmt.Sprintf("Mode: %s | Objects: %d | Zoom: %.0f%% | %s | Backspace: delete",
-						mode, len(state.Objects), state.Zoom*100, extra)
+					bodyCount := 0
+					if state.World != nil && !state.Is3D {
+						bodyCount = len(state.World.Bodies)
+					}
+					txt := fmt.Sprintf("Mode: %s | Objects: %d | Bodies: %d | Zoom: %.0f%% | %s | Backspace: delete",
+						mode, len(state.Objects), bodyCount, state.Zoom*100, extra)
 					lbl := material.Caption(th, txt)
 					lbl.Color = color.NRGBA{R: 0x88, G: 0x88, B: 0xAA, A: 0xFF}
 					return lbl.Layout(gtx)
@@ -525,12 +604,6 @@ func DrawStatusBar(gtx layout.Context, th *material.Theme, state *AppState) layo
 
 // HandleScroll 处理滚动事件
 func HandleScroll(gtx layout.Context, state *AppState) {
-	// 注册事件目标
-	// 注意：这里我们需要处理事件注册
-	// 由于简化处理，我们暂时只处理2D模式下的滚动
-	// 在main.go中保留了更完整的处理
-
-	// 处理指针事件
 	for {
 		ev, ok := gtx.Event(pointer.Filter{
 			Target: state,
@@ -541,7 +614,6 @@ func HandleScroll(gtx layout.Context, state *AppState) {
 		}
 		if se, ok := ev.(pointer.Event); ok && se.Kind == pointer.Scroll {
 			if state.Is3D {
-				// 3D模式：控制相机距离
 				if se.Scroll.Y < 0 {
 					state.Camera.Dist *= 0.92
 					if state.Camera.Dist < 3.0 {
@@ -554,7 +626,6 @@ func HandleScroll(gtx layout.Context, state *AppState) {
 					}
 				}
 			} else {
-				// 2D模式：控制缩放
 				if se.Scroll.Y < 0 {
 					state.Zoom *= 1.08
 					if state.Zoom > 4.0 {
@@ -573,5 +644,4 @@ func HandleScroll(gtx layout.Context, state *AppState) {
 
 // HandleKeys 处理键盘事件
 func HandleKeys(gtx layout.Context, state *AppState) {
-	// 注意：这里简化了处理，实际项目中可能需要更完整的实现
 }

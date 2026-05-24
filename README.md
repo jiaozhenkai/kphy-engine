@@ -30,3 +30,5 @@
 
 ## RUN
 `go run main.go`
+
+![image](./images/image.png)

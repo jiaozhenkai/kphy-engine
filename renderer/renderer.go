@@ -49,6 +49,47 @@ func (r *Renderer) DrawRect(x, y, w, h float32, c color.NRGBA) {
 	paint.Fill(r.ctx.Ops, c)
 }
 
+// DrawRotatedRect 绘制旋转矩形
+func (r *Renderer) DrawRotatedRect(cx, cy, w, h, angle float32, c color.NRGBA) {
+	halfW, halfH := w/2, h/2
+
+	var p clip.Path
+	p.Begin(r.ctx.Ops)
+
+	// 计算四个角点
+	cosA := float32(math.Cos(float64(angle)))
+	sinA := float32(math.Sin(float64(angle)))
+
+	// 四个角点相对于中心的位置
+	points := []f32.Point{
+		{X: -halfW, Y: -halfH},
+		{X: halfW, Y: -halfH},
+		{X: halfW, Y: halfH},
+		{X: -halfW, Y: halfH},
+	}
+
+	// 旋转并移动到正确位置
+	for i, point := range points {
+		// 旋转
+		rotatedX := point.X*cosA - point.Y*sinA
+		rotatedY := point.X*sinA + point.Y*cosA
+
+		// 移动到中心
+		finalX := cx + rotatedX
+		finalY := cy + rotatedY
+
+		if i == 0 {
+			p.MoveTo(f32.Pt(finalX, finalY))
+		} else {
+			p.LineTo(f32.Pt(finalX, finalY))
+		}
+	}
+	p.Close()
+
+	defer clip.Outline{Path: p.End()}.Op().Push(r.ctx.Ops).Pop()
+	paint.Fill(r.ctx.Ops, c)
+}
+
 // DrawTriangle 绘制三角形
 func (r *Renderer) DrawTriangle(cx, cy, size float32, c color.NRGBA) {
 	half := size / 2
@@ -58,6 +99,43 @@ func (r *Renderer) DrawTriangle(cx, cy, size float32, c color.NRGBA) {
 	p.LineTo(f32.Pt(cx+half, cy+half))
 	p.LineTo(f32.Pt(cx-half, cy+half))
 	p.Close()
+	defer clip.Outline{Path: p.End()}.Op().Push(r.ctx.Ops).Pop()
+	paint.Fill(r.ctx.Ops, c)
+}
+
+// DrawRotatedTriangle 绘制旋转三角形
+func (r *Renderer) DrawRotatedTriangle(cx, cy, size float32, angle float32, c color.NRGBA) {
+	half := size / 2
+
+	var p clip.Path
+	p.Begin(r.ctx.Ops)
+
+	cosA := float32(math.Cos(float64(angle)))
+	sinA := float32(math.Sin(float64(angle)))
+
+	// 三个角点相对于中心的位置
+	points := []f32.Point{
+		{X: 0, Y: -half},
+		{X: half, Y: half},
+		{X: -half, Y: half},
+	}
+
+	for i, point := range points {
+		// 旋转
+		rotatedX := point.X*cosA - point.Y*sinA
+		rotatedY := point.X*sinA + point.Y*cosA
+
+		finalX := cx + rotatedX
+		finalY := cy + rotatedY
+
+		if i == 0 {
+			p.MoveTo(f32.Pt(finalX, finalY))
+		} else {
+			p.LineTo(f32.Pt(finalX, finalY))
+		}
+	}
+	p.Close()
+
 	defer clip.Outline{Path: p.End()}.Op().Push(r.ctx.Ops).Pop()
 	paint.Fill(r.ctx.Ops, c)
 }
@@ -77,6 +155,42 @@ func (r *Renderer) DrawPolygon(cx, cy, radius float32, sides int, c color.NRGBA)
 		}
 	}
 	p.Close()
+	defer clip.Outline{Path: p.End()}.Op().Push(r.ctx.Ops).Pop()
+	paint.Fill(r.ctx.Ops, c)
+}
+
+// DrawRotatedPolygon 绘制旋转多边形
+func (r *Renderer) DrawRotatedPolygon(cx, cy, radius float32, sides int, angle float32, c color.NRGBA) {
+	var p clip.Path
+	p.Begin(r.ctx.Ops)
+
+	cosA := float32(math.Cos(float64(angle)))
+	sinA := float32(math.Sin(float64(angle)))
+
+	for i := 0; i < sides; i++ {
+		// 多边形角点角度
+		polyAngle := float64(i)*2*math.Pi/float64(sides) - math.Pi/2
+
+		// 相对于中心的位置
+		localX := radius * float32(math.Cos(polyAngle))
+		localY := radius * float32(math.Sin(polyAngle))
+
+		// 旋转
+		rotatedX := localX*cosA - localY*sinA
+		rotatedY := localX*sinA + localY*cosA
+
+		// 移动到最终位置
+		finalX := cx + rotatedX
+		finalY := cy + rotatedY
+
+		if i == 0 {
+			p.MoveTo(f32.Pt(finalX, finalY))
+		} else {
+			p.LineTo(f32.Pt(finalX, finalY))
+		}
+	}
+	p.Close()
+
 	defer clip.Outline{Path: p.End()}.Op().Push(r.ctx.Ops).Pop()
 	paint.Fill(r.ctx.Ops, c)
 }
@@ -275,7 +389,7 @@ func (r *Renderer) drawVerticalGradient(x, y, w, h float32, base color.NRGBA) {
 // 辅助函数：绘制渐隐的边缘
 func (r *Renderer) drawFadedEdge(cx, cy, half, off float32, base color.NRGBA) {
 	// 这里可以添加更多的边缘渐变效果
-	// 为了简化，我们暂时只做基础实现
+	// 为了简化，暂时只做基础实现
 }
 
 // 辅助函数：颜色插值

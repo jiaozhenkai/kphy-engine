@@ -47,3 +47,141 @@ type RigidBody struct {
 
 	Shapes []Shape // 形状：物体拥有的碰撞形状
 }
+
+// NewRigidBody 创建2D刚体
+func NewRigidBody(typ BodyType, position math.Vector2, mass float32) *RigidBody {
+	invMass := float32(0)
+	invInertia := float32(0)
+
+	if typ == BodyDynamic && mass > 0 {
+		invMass = 1 / mass
+		invInertia = float32(0.1) // 先给个默认转动惯量倒数
+	}
+
+	return &RigidBody{
+		Type:            typ,
+		Position:        position,
+		Angle:           0,
+		LinearVelocity:  math.Vec2(0, 0),
+		AngularVelocity: 0,
+		Mass:            mass,
+		InvMass:         invMass,
+		Inertia:         10,
+		InvInertia:      invInertia,
+		Force:           math.Vec2(0, 0),
+		Torque:          0,
+		Material:        DefaultMaterial(),
+		LinearDamping:   0.01,
+		AngularDamping:  0.01,
+		GravityScale:    1.0,
+		IsSensor:        false,
+		Shapes:          make([]Shape, 0),
+	}
+}
+
+// SetMass 设置质量
+func (b *RigidBody) SetMass(mass float32) {
+	if b.Type == BodyStatic {
+		return
+	}
+	b.Mass = mass
+	if mass > 0 {
+		b.InvMass = 1 / mass
+	} else {
+		b.InvMass = 0
+	}
+}
+
+// ApplyForce 施加力到质心
+func (b *RigidBody) ApplyForce(force math.Vector2) {
+	if b.Type != BodyDynamic {
+		return
+	}
+	b.Force = b.Force.Add(force)
+}
+
+// ApplyForceAtPoint 在世界坐标的某个点施加力
+func (b *RigidBody) ApplyForceAtPoint(force math.Vector2, point math.Vector2) {
+	if b.Type != BodyDynamic {
+		return
+	}
+
+	b.Force = b.Force.Add(force)
+
+	// 计算从质心到点的向量
+	arm := point.Sub(b.Position)
+	// 计算力矩
+	b.Torque += arm.Cross(force)
+}
+
+// ApplyLinearImpulse 施加冲量到质心（直接改变速度）
+func (b *RigidBody) ApplyLinearImpulse(impulse math.Vector2) {
+	if b.Type != BodyDynamic {
+		return
+	}
+	b.LinearVelocity = b.LinearVelocity.Add(impulse.Mul(b.InvMass))
+}
+
+// ApplyTorque 施加力矩
+func (b *RigidBody) ApplyTorque(torque float32) {
+	if b.Type != BodyDynamic {
+		return
+	}
+	b.Torque += torque
+}
+
+// SetLinearVelocity 设置线速度
+func (b *RigidBody) SetLinearVelocity(vel math.Vector2) {
+	b.LinearVelocity = vel
+}
+
+// SetAngularVelocity 设置角速度
+func (b *RigidBody) SetAngularVelocity(vel float32) {
+	b.AngularVelocity = vel
+}
+
+// IntegrateLinear 积分线性速度（F = ma）
+func (b *RigidBody) IntegrateLinear(dt float32) {
+	if b.Type != BodyDynamic || b.InvMass <= 0 {
+		return
+	}
+
+	// v += (F/m) * dt
+	acceleration := b.Force.Mul(b.InvMass)
+	b.LinearVelocity = b.LinearVelocity.Add(acceleration.Mul(dt))
+
+	// 应用阻尼
+	b.LinearVelocity = b.LinearVelocity.Mul(1 - b.LinearDamping*dt)
+}
+
+// IntegratePosition 积分位置（x += v * dt）
+func (b *RigidBody) IntegratePosition(dt float32) {
+	if b.Type != BodyDynamic {
+		return
+	}
+
+	b.Position = b.Position.Add(b.LinearVelocity.Mul(dt))
+}
+
+// IntegrateAngular 积分角速度（τ = Iα）
+func (b *RigidBody) IntegrateAngular(dt float32) {
+	if b.Type != BodyDynamic || b.InvInertia <= 0 {
+		return
+	}
+
+	// ω += (τ/I) * dt
+	angularAcc := b.Torque * b.InvInertia
+	b.AngularVelocity += angularAcc * dt
+
+	// 应用阻尼
+	b.AngularVelocity *= (1 - b.AngularDamping*dt)
+}
+
+// IntegrateRotation 积分角度（θ += ω * dt）
+func (b *RigidBody) IntegrateRotation(dt float32) {
+	if b.Type != BodyDynamic {
+		return
+	}
+
+	b.Angle += b.AngularVelocity * dt
+}

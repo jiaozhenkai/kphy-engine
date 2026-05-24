@@ -1,6 +1,10 @@
 package shapes
 
-import "image/color"
+import (
+	"image/color"
+	
+	"kphy-engine/physics2d"
+)
 
 // ShapeKind 定义了可用的形状类型
 type ShapeKind int
@@ -42,6 +46,8 @@ type SceneObject struct {
 	Z     float32
 	Size  float32
 	Color color.NRGBA
+	// RigidBody 物理刚体（2D时使用）
+	RigidBody *physics2d.RigidBody
 }
 
 // ColorPalette 提供默认的颜色调色板
