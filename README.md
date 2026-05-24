@@ -15,11 +15,11 @@
 
 ## Progress
 - [x] UI(AI 协助实现) 
-- [x]math/vector2 向量运算
-- []math/matrix 矩阵运算
+- [x] math/vector2 向量运算
+- [x] math/matrix 矩阵运算
 - [] physics/ 的形状和刚体
-- []collision/ 的碰撞检测
-- []solver/ 的解算逻辑
+- [] collision/ 的碰撞检测
+- [] solver/ 的解算逻辑
 
 ## 架构s
 [架构图](ARCHITECTURE.md)
